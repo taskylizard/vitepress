@@ -7,6 +7,6 @@
     "watch": "DEBUG=1 vitest"
   },
   "devDependencies": {
-    "vitepress": "workspace:*"
+    "meowpress": "workspace:*"
   }
 }

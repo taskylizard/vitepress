@@ -291,13 +291,13 @@ importers:
 
   __tests__/e2e:
     devDependencies:
-      vitepress:
+      meowpress:
         specifier: workspace:*
         version: link:../..
 
   __tests__/init:
     devDependencies:
-      vitepress:
+      meowpress:
         specifier: workspace:*
         version: link:../..
 
@@ -306,7 +306,7 @@ importers:
       markdown-it-mathjax3:
         specifier: ^4.3.2
         version: 4.3.2
-      vitepress:
+      meowpress:
         specifier: workspace:*
         version: link:..
 
