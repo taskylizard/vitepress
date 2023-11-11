@@ -53,7 +53,11 @@ export interface MarkdownOptions extends MarkdownIt.Options {
   theme?: ThemeOptions
   languages?: ILanguageRegistration[]
   toc?: TocPluginOptions
-  // emoji?: Options,
+  emoji?: {
+    defs?: Record<string, string> | undefined
+    enabled?: string[] | undefined
+    shortcuts?: string[] | undefined
+  }
   externalLinks?: Record<string, string>
   cache?: boolean
   component?: ComponentPluginOptions
@@ -110,7 +114,7 @@ export const createMarkdownRenderer = async (
   if (!options.attrs?.disable) {
     md.use(attrsPlugin, options.attrs)
   }
-  md.use(emojiPlugin)
+  md.use(emojiPlugin, options.emoji)
 
   // mdit-vue plugins
   md.use(anchorPlugin, {
