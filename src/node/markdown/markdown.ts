@@ -17,7 +17,7 @@ import { slugify } from '@mdit-vue/shared'
 import MarkdownIt from 'markdown-it'
 import anchorPlugin from 'markdown-it-anchor'
 import attrsPlugin from 'markdown-it-attrs'
-import emojiPlugin, { type Options } from 'markdown-it-emoji'
+import emojiPlugin from 'markdown-it-emoji'
 import type { ILanguageRegistration, IThemeRegistration } from 'shiki'
 import type { Logger } from 'vite'
 import { containerPlugin, type ContainerOptions } from './plugins/containers'
@@ -52,8 +52,8 @@ export interface MarkdownOptions extends MarkdownIt.Options {
   sfc?: SfcPluginOptions
   theme?: ThemeOptions
   languages?: ILanguageRegistration[]
-  toc?: TocPluginOptions,
-  emoji?: Options,
+  toc?: TocPluginOptions
+  // emoji?: Options,
   externalLinks?: Record<string, string>
   cache?: boolean
   component?: ComponentPluginOptions
@@ -110,7 +110,7 @@ export const createMarkdownRenderer = async (
   if (!options.attrs?.disable) {
     md.use(attrsPlugin, options.attrs)
   }
-  md.use(emojiPlugin, options.emoji)
+  md.use(emojiPlugin)
 
   // mdit-vue plugins
   md.use(anchorPlugin, {

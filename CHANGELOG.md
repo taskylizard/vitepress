@@ -1,3 +1,9 @@
+# [1.0.0](https://github.com/vuejs/vitepress/compare/v1.0.0-rc.25...v1.0.0) (2023-11-11)
+
+### Bug Fixes
+
+- style links in footer ([#3178](https://github.com/vuejs/vitepress/issues/3178)) ([a482611](https://github.com/vuejs/vitepress/commit/a482611d17197a0b7afc403891cd95f344e7a55f))
+
 # [1.0.0-rc.25](https://github.com/vuejs/vitepress/compare/v1.0.0-rc.24...v1.0.0-rc.25) (2023-11-05)
 
 ### Bug Fixes
