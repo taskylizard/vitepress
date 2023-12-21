@@ -28,7 +28,7 @@ const { hasSidebar } = useSidebar()
 
     <VPHome v-else-if="frontmatter.layout === 'home'">
       <template #home-hero-before><slot name="home-hero-before" /></template>
-      <template #home-hero-info-before><slot name="home-hero-info-before" /></template>
+      <template #home-hero-prelink><slot name="home-hero-prelink" /></template>
       <template #home-hero-info><slot name="home-hero-info" /></template>
       <template #home-hero-info-after><slot name="home-hero-info-after" /></template>
       <template #home-hero-actions-after><slot name="home-hero-actions-after" /></template>
