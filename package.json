@@ -1,6 +1,6 @@
 {
   "name": "@taskylizard/vitepress",
-  "version": "1.0.0-rc.32",
+  "version": "1.0.1",
   "description": "Vite & Vue powered static site generator",
   "keywords": [
     "vite",
