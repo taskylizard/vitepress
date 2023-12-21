@@ -1,52 +1,48 @@
-<script lang="ts" setup>
-import { inject, computed } from 'vue'
-import { useData } from '../composables/data'
-import VPSwitch from './VPSwitch.vue'
+<script setup lang="ts">
+import { inject } from "vue";
+import { useData } from "vitepress";
 
-const { isDark, theme } = useData()
+import VPIconMoon from "./icons/VPIconMoon.vue";
+import VPIconSun from "./icons/VPIconSun.vue";
 
-const toggleAppearance = inject('toggle-appearance', () => {
-  isDark.value = !isDark.value
-})
+const { isDark } = useData();
 
-const switchTitle = computed(() => {
-  return isDark.value
-    ? theme.value.lightModeSwitchTitle || 'Switch to light theme'
-    : theme.value.darkModeSwitchTitle || 'Switch to dark theme'
-})
+const toggleAppearance = inject("toggle-appearance", () => {
+  isDark.value = !isDark.value;
+});
 </script>
 
 <template>
-  <VPSwitch
-    :title="switchTitle"
-    class="VPSwitchAppearance"
-    :aria-checked="isDark"
-    @click="toggleAppearance"
-  >
-    <span class="vpi-sun sun" />
-    <span class="vpi-moon moon" />
-  </VPSwitch>
+  <button type="button" role="switch" title="Toggle dark mode" class="VPSwitchAppearance" :aria-checked="isDark"
+    @click="toggleAppearance">
+    <ClientOnly>
+      <Transition name="fade" mode="out-in">
+        <VPIconSun v-if="!isDark" class="sun" />
+        <VPIconMoon v-else class="moon" />
+      </Transition>
+    </ClientOnly>
+  </button>
 </template>
 
 <style scoped>
-.sun {
-  opacity: 1;
-}
+.VPSwitchAppearance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--vp-c-text-2);
+  transition: color 0.5s;
 
-.moon {
-  opacity: 0;
-}
+  &:hover {
+    color: var(--vp-c-text-1);
+    transition: color 0.25s;
+  }
 
-.dark .sun {
-  opacity: 0;
-}
-
-.dark .moon {
-  opacity: 1;
-}
-
-.dark .VPSwitchAppearance :deep(.check) {
-  /*rtl:ignore*/
-  transform: translateX(18px);
+  &> :deep(svg) {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
 }
 </style>
