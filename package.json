@@ -1,9 +1,12 @@
 {
-  "name": "vitepress",
-  "version": "1.0.0-rc.39",
+  "name": "@taskylizard/vitepress",
+  "version": "1.0.0-rc.32",
   "description": "Vite & Vue powered static site generator",
   "type": "module",
-  "packageManager": "pnpm@8.14.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@8.12.1",
   "main": "dist/node/index.js",
   "types": "types/index.d.ts",
   "exports": {
