@@ -56,6 +56,7 @@ provide('hero-image-slot-exists', heroImageSlotExists)
 
       <template #not-found><slot name="not-found" /></template>
       <template #home-hero-before><slot name="home-hero-before" /></template>
+      <template #home-hero-prelink><slot name="home-hero-prelink" /></template>
       <template #home-hero-info><slot name="home-hero-info" /></template>
       <template #home-hero-image><slot name="home-hero-image" /></template>
       <template #home-hero-after><slot name="home-hero-after" /></template>
