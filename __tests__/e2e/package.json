@@ -3,13 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "vitest run",
-    "watch": "DEBUG=1 vitest",
-    "site:dev": "vitepress",
     "site:build": "vitepress build",
-    "site:preview": "vitepress preview"
+    "site:dev": "vitepress",
+    "site:preview": "vitepress preview",
+    "test": "vitest run",
+    "watch": "DEBUG=1 vitest"
   },
   "devDependencies": {
-    "vitepress": "workspace:*"
+    "vitepress": "workspace:@taskylizard/vitepress@*"
   }
 }
