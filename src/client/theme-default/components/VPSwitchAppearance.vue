@@ -1,19 +1,27 @@
 <script setup lang="ts">
-import { inject } from "vue";
+import { inject, ref, watchPostEffect } from "vue";
 import { useData } from "vitepress";
 
 import VPIconMoon from "./icons/VPIconMoon.vue";
 import VPIconSun from "./icons/VPIconSun.vue";
 
-const { isDark } = useData();
+const { isDark, theme } = useData();
 
 const toggleAppearance = inject("toggle-appearance", () => {
   isDark.value = !isDark.value;
 });
+
+const switchTitle = ref('')
+
+watchPostEffect(() => {
+  switchTitle.value = isDark.value
+    ? theme.value.lightModeSwitchTitle || 'Switch to light theme'
+    : theme.value.darkModeSwitchTitle || 'Switch to dark theme'
+})
 </script>
 
 <template>
-  <button type="button" role="switch" title="Toggle dark mode" class="VPSwitchAppearance" :aria-checked="isDark"
+  <button type="button" role="switch" :title="switchTitle" class="VPSwitchAppearance" :aria-checked="isDark"
     @click="toggleAppearance">
     <ClientOnly>
       <Transition name="fade" mode="out-in">
