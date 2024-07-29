@@ -345,6 +345,7 @@ export namespace DefaultTheme {
     | 'twitter'
     | 'x'
     | 'youtube'
+    | 'reddit'
     | { svg: string }
 
   // footer --------------------------------------------------------------------
