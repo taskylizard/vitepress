@@ -44,7 +44,7 @@ export function resolveAliases(
     },
     {
       find: /^vue-demi$/,
-      replacement: require.resolve('vitepress/vue-demi')
+      replacement: require.resolve('@taskylizard/vitepress/vue-demi')
     }
   ]
 
